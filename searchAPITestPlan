@@ -1,0 +1,23 @@
+Scope:
+    searchAPI Test: https://itunes.apple.com/search?parameterkeyvalue
+
+Test:
+Positive scenarios:
+1) mandatory param, check the result matches with the mandatory param, and check the default values of the optional params
+2) full params with non default values, check the result matches the input params
+3) loop each valid media value
+4) limit = 1, 200
+
+
+Negative scenarios:
+1) without term param - 200 code
+2) term = URL not encoded - 200 code
+3) term contains "., -, _, *" - 200 code
+4) limit = 0, 201 - 200 code
+
+5) country = invalid Country Code - 400 code
+6) media = invalid media value - 400 code
+
+Performance Response Time check:
+<100ms
+500 threads, 5,000,000 tasks
